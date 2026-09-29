@@ -15,9 +15,9 @@ void main() {
         child: const SensyWallApp(),
       ),
     );
-    await tester.pumpAndSettle();
+    await tester.pump(const Duration(seconds: 1));
 
-    expect(find.text('Welcome to Sensy Wall'), findsOneWidget);
+    expect(find.text('Start'), findsOneWidget);
     await tester.tap(find.text('Start'));
     await tester.pumpAndSettle();
 

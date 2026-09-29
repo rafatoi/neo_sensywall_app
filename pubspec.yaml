@@ -7,6 +7,7 @@ environment:
   sdk: ^3.13.4
 
 dependencies:
+  audioplayers: 6.8.1
   flutter:
     sdk: flutter
   flutter_localizations:
@@ -28,3 +29,10 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - assets/icons/
+    - assets/images/
+    - assets/animations/
+    - assets/audio/
+    - assets/launcher/
+    - assets/assets_manifest.json

@@ -20,7 +20,8 @@
     <application
         android:label="Sensy Wall"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/sensywall_launcher"
+        android:roundIcon="@mipmap/sensywall_launcher_round">
         <activity
             android:name=".MainActivity"
             android:exported="true"

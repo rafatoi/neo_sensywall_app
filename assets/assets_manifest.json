@@ -1,0 +1,496 @@
+{
+    "schemaVersion":  1,
+    "snapshotDate":  "2026-09-29",
+    "sourceRoot":  "SensyWall/",
+    "assetCount":  61,
+    "assets":  [
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/alarm_clock.xml",
+                       "target":  "assets/icons/alarm_clock.svg",
+                       "sourceSha256":  "3bea54be0c41234678feb9ae156260801f1400f195877dbb1e4e5d19d3a14738",
+                       "targetSha256":  "471ac744633be95004b907204079943ff5af9995dac9d3bac3154884cfc8d535",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/angle_small_down.xml",
+                       "target":  "assets/icons/angle_small_down.svg",
+                       "sourceSha256":  "efbc763edf5a445d9714f6caf051d2e5f63bdd99a9c6859b18c425f4c81e352c",
+                       "targetSha256":  "819faa56f7300d54e6e4901f7922220f49995247f77b785869787054beafa5b6",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/bluetooth.xml",
+                       "target":  "assets/icons/bluetooth.svg",
+                       "sourceSha256":  "24a468bd0f2578e633345f9aa24940b84e5fcff50a0a5aba16334aa68e322be1",
+                       "targetSha256":  "3c33888242c59a3ba3ab63636eaff8238a7ac599d1e1d70c46df84b09b368476",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/brainstorming_icon.xml",
+                       "target":  "assets/icons/brainstorming_icon.svg",
+                       "sourceSha256":  "0b08c7439f1959d40f0b0aade27605c383cd2c2853944fb003d90aadcf43de9a",
+                       "targetSha256":  "bcceb4cb00b8adcb6a5404476fe2e1ff6bf8598a899b1ddd191f2a6588f76b6a",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/brightness.xml",
+                       "target":  "assets/icons/brightness.svg",
+                       "sourceSha256":  "2f99c8bc9b40b8b5310b1ed92b8dfd715fc21c075923bab54b791d561ce3f84d",
+                       "targetSha256":  "cb795feefdce70e5a77587ca1c52f27bc57358a8ffb9b8ae07dbc2e0a87ddb80",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/bulb.xml",
+                       "target":  "assets/icons/bulb.svg",
+                       "sourceSha256":  "924a72da8ff82a4e4113697dd92ef8efea1809aa3563c28f470044d860434149",
+                       "targetSha256":  "5da90cd9e422d78864da43b8378a2adbb534dbe6508c8757426f381f5564dabf",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/code_editing.xml",
+                       "target":  "assets/icons/code_editing.svg",
+                       "sourceSha256":  "46bd3532759c8f5f849f8bd10c2d688526c5c99f962811e90ca4f92118ea77d2",
+                       "targetSha256":  "3b5652e3344f49b00ae2d5d24ab00d224af86e12bc6a87aa39144710d5a5d8ec",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/code_window.xml",
+                       "target":  "assets/icons/code_window.svg",
+                       "sourceSha256":  "246f9e0ce4c52740df01bc61da55a2c7a1ba5f33f51eb655d46293f02a146375",
+                       "targetSha256":  "d4df72ac390c9688fe6959b876d5f50effdfaed9be990beb2784767b542e5955",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/cross_circle.xml",
+                       "target":  "assets/icons/cross_circle.svg",
+                       "sourceSha256":  "46bddee935392289ea4548555fcb608711756ba1fcfc48a4cccc5f5b1da63dc7",
+                       "targetSha256":  "df3fbd9f7e7012a83d2d9301c56a3e8285ada07b5a719914c954130be3cbab41",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/document_signed.xml",
+                       "target":  "assets/icons/document_signed.svg",
+                       "sourceSha256":  "f88b52e113050d5c9e21caecde04c1a440fb9d0ffc3c703c75dcacbd12446095",
+                       "targetSha256":  "bc0d7c1c4dbffd39c57bc5a0ba497408f391b618f55c72cd8c70fcb87dca5449",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/fastlogo.xml",
+                       "target":  "assets/icons/fastlogo.svg",
+                       "sourceSha256":  "958aeb5e7c9e0bce12911027bf9807c4ac76be3bf13da48d29fcacc6570f7691",
+                       "targetSha256":  "06dc8ef6383139f9fd6296f4780568a5e0c5e9c669e3f89e7e0607909076bff4",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/fishing_net_icon.xml",
+                       "target":  "assets/icons/fishing_net_icon.svg",
+                       "sourceSha256":  "4c544c5b406643ae551abea6b46fffa8059014fd1f4060ed717bb9a934064972",
+                       "targetSha256":  "f0a02f7e92ba2811814cf25135203c7a20a0a63b0fa986d61fe737d6a3c2274a",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/globe.xml",
+                       "target":  "assets/icons/globe.svg",
+                       "sourceSha256":  "32f8e34ee7e37b88c7bb627d7f39bdfa220024458fb0d9c508a4982c7a3ff792",
+                       "targetSha256":  "77481c83396dc7ff664539706aab5f2f37aad168e73e5252f931a92ed8c2b8a2",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/ic_launcher_background.xml",
+                       "target":  "assets/icons/ic_launcher_background.svg",
+                       "sourceSha256":  "e32765639e1658427cb9821350571c37859d8a8f0a9d12c0d8f7c15913a20a93",
+                       "targetSha256":  "6575d8264cb19ec381927f56e4d7fd82deee4d4bdbf91226a9dd79daf4dffe23",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/ic_launcher_foreground.xml",
+                       "target":  "assets/icons/ic_launcher_foreground.svg",
+                       "sourceSha256":  "7150c3184f995cba2b0d9462e0597bea690dfc792d5f314fdec5c8df2748d217",
+                       "targetSha256":  "9ccd894138b32027d3793df04bff7ddec83f85dd8c6b05843c394a6a2822da34",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/lock.xml",
+                       "target":  "assets/icons/lock.svg",
+                       "sourceSha256":  "d77d307a71397571f9fd2be2fff384300cf8fcf189ce28e5a5ab348eb73219a0",
+                       "targetSha256":  "499900e916561ef3868bd9b4e9e9ef6d678f9ecab8d9e10600f62316dbebee7c",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/lock_open_alt.xml",
+                       "target":  "assets/icons/lock_open_alt.svg",
+                       "sourceSha256":  "6299ab96ffeac7f6efcba2e983965b7d7a443387b9f802a1f07f354703b41cc5",
+                       "targetSha256":  "2c2c1c0abe1bda20b9be5ae28342d04a2e6c920327af3924ec17cbaf62776f1e",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/minus_small.xml",
+                       "target":  "assets/icons/minus_small.svg",
+                       "sourceSha256":  "b05c4f4a79c2279883f93c6d3d9c0b8984cda07362a4d49bde6e83d79ec434a5",
+                       "targetSha256":  "91623d0f200580535ae4fa984b5f8651bb5bece23f9894bcc447e691bc117070",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/moon.xml",
+                       "target":  "assets/icons/moon.svg",
+                       "sourceSha256":  "b73742e90bbc5fa911b480ebbf69f4a342b4acffd0334862efd9e805dde1a5ac",
+                       "targetSha256":  "d149111520d7adf65e9da920cf227509b0cb04f5b79e6f70f1f9934b5fa6a8ad",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/paint_palette_icon.xml",
+                       "target":  "assets/icons/paint_palette_icon.svg",
+                       "sourceSha256":  "2208ec9c015d839366c887b771e71a09a39fb66761783f50751412e41a7caf81",
+                       "targetSha256":  "a10ddc43bf13a55eea162435a960d256f2cbe52f1077da282d8e4a904739e8da",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/pdf_icon.xml",
+                       "target":  "assets/icons/pdf_icon.svg",
+                       "sourceSha256":  "c519ddced1897ae0be2f257d2106976533a3eedc0294f5cc675e518fdb89a9c7",
+                       "targetSha256":  "98e44bb5a6226da72321963a4995a26f9fd41234f745f810bef72bbf84c3a9a5",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/plug_connected.xml",
+                       "target":  "assets/icons/plug_connected.svg",
+                       "sourceSha256":  "d64a3a0b163fe5ee0ee9c1241f5716b8c03575894681ee53b190fa21da5381b9",
+                       "targetSha256":  "028b7a0aff3258d36d99026645563bf95816cecd7ddd3038bf9f7394ce36b65f",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/plug_connection.xml",
+                       "target":  "assets/icons/plug_connection.svg",
+                       "sourceSha256":  "565123ef26a76aad8ab53398211635ef74c6e44b52a9cef9f6b015cb4502ff9f",
+                       "targetSha256":  "799fb84f32c7d2863f4dc83f80dd7fcd83ffcffe6daab082339745a1100a2a21",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/plus_small.xml",
+                       "target":  "assets/icons/plus_small.svg",
+                       "sourceSha256":  "58a4e659e1dacd30e6e72e9f95c4160069beb9c91edaee53982c51247242ad07",
+                       "targetSha256":  "8d8924f4c6a27b0fc2356e2749bacf776920eb5b8e8e6ac6518122318bab02dd",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/qr_scan.xml",
+                       "target":  "assets/icons/qr_scan.svg",
+                       "sourceSha256":  "f2a5729b809782b3f9132044f112affa9ae799f9e1e259ec8ab46c5cad2bdb80",
+                       "targetSha256":  "14e21fd2e8fa34712a1a80d444e5aa735a14fb126754e6b4258449d92177e9c5",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensory_logo.xml",
+                       "target":  "assets/icons/sensory_logo.svg",
+                       "sourceSha256":  "b3472d961b9b85da8f84268d4e3b0867812b8ca8b1b3cd2a8269b2f0d42d3498",
+                       "targetSha256":  "9f61f7171a5bdc05ee9b63a951d8dda9794f98a16b9398c245e431d08f130d5d",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensory_logo_w.xml",
+                       "target":  "assets/icons/sensory_logo_w.svg",
+                       "sourceSha256":  "db19bc47eb8cbee2688eb02aa6d76bfb3ca24f88f6be706b6b3675f7fbb70baf",
+                       "targetSha256":  "9c4b25cd193df19e3258200ca1e902284890e7572173c3d776e02a4cf4418052",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensy_wall__.xml",
+                       "target":  "assets/icons/sensy_wall__.svg",
+                       "sourceSha256":  "b625f74054c39fbe374dd358042f089cbe216f5ec74dcc5f0d6a71224efd8710",
+                       "targetSha256":  "833835a6c160bbf75ba1bc2dccf79592bd9ca9a751b3a2d77aa7fad19d82a68c",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensy_wall___.xml",
+                       "target":  "assets/icons/sensy_wall___.svg",
+                       "sourceSha256":  "e05120cfa9a97dd3aa122bcbb0ed3b9c8e40c39500b488de2b78ece00d73398c",
+                       "targetSha256":  "ca7d086518ebc3241c0fcfce38fe0929e79ef86297ced781f9319428718481ba",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensy_wall____.xml",
+                       "target":  "assets/icons/sensy_wall____.svg",
+                       "sourceSha256":  "880b1893e0a1fde0df9d6b61fbc089f777ffa7cdccffe63840037c7cbe34b2c2",
+                       "targetSha256":  "721987e7f3d15aac874499980294093aa02ac8c688401fdc7b4caad05c2115f1",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensy_wall_1.xml",
+                       "target":  "assets/icons/sensy_wall_1.svg",
+                       "sourceSha256":  "45b2acffc6f89dec47bde03bfc723dccbb8921d1afb5721ada3fd6ae95046c8c",
+                       "targetSha256":  "e5c494d5a415c2f7526447000fdb5d963f84214b768742666818dcdc1bd684d8",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensy_wall_3.xml",
+                       "target":  "assets/icons/sensy_wall_3.svg",
+                       "sourceSha256":  "4c2d4714d491ec5ffd776bd3e71aa2b1df1f932e228118052803f84ac93691b3",
+                       "targetSha256":  "f2c68690afa8250987881d8c770003b217846f7f54561207a3e7f1ae823e9821",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensywall.xml",
+                       "target":  "assets/icons/sensywall.svg",
+                       "sourceSha256":  "38ae1f1036c4cbf6793eb031873bd89bfc74bdbc6bc48f7c44c376d8e84d1e65",
+                       "targetSha256":  "d64bc050c65805fb401366ad64b9f63cdae85fe7999397eedabf57c0c7e3ca6c",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/sensywallsection.xml",
+                       "target":  "assets/icons/sensywallsection.svg",
+                       "sourceSha256":  "a463ca32f8343faed7c420e2435d7fdcd0fd5b76a281cd75cd398cd916005d9f",
+                       "targetSha256":  "94b58d53cd890e7e3ee0a27dbcf1f28da3c6b5f469f8d2b41449252afd18df5d",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/signal_hig.xml",
+                       "target":  "assets/icons/signal_hig.svg",
+                       "sourceSha256":  "9c52cb802c0b4a5a187da2ada09cd9708f1e064463bd6ef1e3255324d4f8986e",
+                       "targetSha256":  "ed18f88990e28ae0f26c7d37c768bc70e07acd0ca0897c7227c6ebcd74dff27d",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/signal_low.xml",
+                       "target":  "assets/icons/signal_low.svg",
+                       "sourceSha256":  "2e56f3b2403ef8b67d691ea88e7ab03ec47a04822d6de8cee6639ff45be79453",
+                       "targetSha256":  "822c76cbe385f2da8b6ef19eef3a3bedeff47b746716247e9ae4bd91c2aa6e8f",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/signal_medium.xml",
+                       "target":  "assets/icons/signal_medium.svg",
+                       "sourceSha256":  "8d340bd5da3ccd241c9957e983c104df787cd157a430b57d5d79cf1ada37aa3d",
+                       "targetSha256":  "e0870d026d96ed39be585fc69797b17f9bf77508e3b5fe76e5f9e31a85a47eb8",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/triangle.xml",
+                       "target":  "assets/icons/triangle.svg",
+                       "sourceSha256":  "208a76f8883812c10e279f99855f4605ab0652dfea1832da3d359bc5470b541a",
+                       "targetSha256":  "75c38090233eb2ef7c5feb6e66c3b5d3fd3bc4aa180529f4305b811e1f471f19",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/verified_icon.xml",
+                       "target":  "assets/icons/verified_icon.svg",
+                       "sourceSha256":  "c0bc195f9603f3bb1048416e3bc12aa94444bd857442491e1ab4932204f7184d",
+                       "targetSha256":  "51ba43d40b87a50f2da17d86c81aa67d0e3805fdaae9d22b673e45384644822f",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/verified_symbol_icon.xml",
+                       "target":  "assets/icons/verified_symbol_icon.svg",
+                       "sourceSha256":  "c0bc195f9603f3bb1048416e3bc12aa94444bd857442491e1ab4932204f7184d",
+                       "targetSha256":  "51ba43d40b87a50f2da17d86c81aa67d0e3805fdaae9d22b673e45384644822f",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/volume.xml",
+                       "target":  "assets/icons/volume.svg",
+                       "sourceSha256":  "efcb61957b95dec67fc28428497a889ef0b8b297e3924481d316da6013754056",
+                       "targetSha256":  "6c34bb8e037b8705fcebf3f5929f6463e3bfa0403798240f6bb5bce67ac574d5",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "vector",
+                       "source":  "app/src/main/res/drawable/volume_mute.xml",
+                       "target":  "assets/icons/volume_mute.svg",
+                       "sourceSha256":  "ddcd39734922185dc2c30bf172edfd7a81fef316debe0922945f9fec48e05466",
+                       "targetSha256":  "2b63f1864a24b07d206fbb26c98fff872872c121205a40af6ec43a2477ce03d7",
+                       "conversion":  "android-vector-to-svg-v1"
+                   },
+                   {
+                       "type":  "image",
+                       "source":  "app/src/main/res/drawable/md_sw.png",
+                       "target":  "assets/images/md_sw.png",
+                       "sourceSha256":  "2995513dc8084e507a2ab79f864921e06f2be3794fa04216b2b9399be77724c3",
+                       "targetSha256":  "2995513dc8084e507a2ab79f864921e06f2be3794fa04216b2b9399be77724c3",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "image",
+                       "source":  "app/src/main/res/drawable/darwin.webp",
+                       "target":  "assets/images/darwin.webp",
+                       "sourceSha256":  "098c80fb39dd04eccda225a1a877157e80d556e7e745c6f6103c87cfd3608a48",
+                       "targetSha256":  "098c80fb39dd04eccda225a1a877157e80d556e7e745c6f6103c87cfd3608a48",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/ic_launcher-playstore.png",
+                       "target":  "assets/launcher/ic_launcher-playstore.png",
+                       "sourceSha256":  "af635f080d1a942bc164c6a43760a4b3189a84f04e214598bf620776970a351b",
+                       "targetSha256":  "af635f080d1a942bc164c6a43760a4b3189a84f04e214598bf620776970a351b",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-mdpi/ic_launcher.webp",
+                       "target":  "assets/launcher/mipmap-mdpi/ic_launcher.webp",
+                       "sourceSha256":  "c7287ec39990d9532c9c03b94d929eda9ab6dcb62ba2a0ac68a64f7adbc04b4d",
+                       "targetSha256":  "c7287ec39990d9532c9c03b94d929eda9ab6dcb62ba2a0ac68a64f7adbc04b4d",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-mdpi/ic_launcher_round.webp",
+                       "target":  "assets/launcher/mipmap-mdpi/ic_launcher_round.webp",
+                       "sourceSha256":  "59a5d6b53c7d5ee4279dc52b971424c079b5391f327bd4759b013ce37fb511f9",
+                       "targetSha256":  "59a5d6b53c7d5ee4279dc52b971424c079b5391f327bd4759b013ce37fb511f9",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-hdpi/ic_launcher.webp",
+                       "target":  "assets/launcher/mipmap-hdpi/ic_launcher.webp",
+                       "sourceSha256":  "8aa72140be7ceeacbbceed4487c0993a550bfd7fdacad5dbe7eed2d4e23657f5",
+                       "targetSha256":  "8aa72140be7ceeacbbceed4487c0993a550bfd7fdacad5dbe7eed2d4e23657f5",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-hdpi/ic_launcher_round.webp",
+                       "target":  "assets/launcher/mipmap-hdpi/ic_launcher_round.webp",
+                       "sourceSha256":  "21b0513587f798731f310b94091854ac820cd8034ab75d6e36d3e0b051c46f65",
+                       "targetSha256":  "21b0513587f798731f310b94091854ac820cd8034ab75d6e36d3e0b051c46f65",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-xhdpi/ic_launcher.webp",
+                       "target":  "assets/launcher/mipmap-xhdpi/ic_launcher.webp",
+                       "sourceSha256":  "99465ad8541cfb8ca8b0ff52c299e572b10dd00293391dd4519ff29ef54bdba1",
+                       "targetSha256":  "99465ad8541cfb8ca8b0ff52c299e572b10dd00293391dd4519ff29ef54bdba1",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp",
+                       "target":  "assets/launcher/mipmap-xhdpi/ic_launcher_round.webp",
+                       "sourceSha256":  "06a60ce251415137ff006e19d9eab4c63a0f8e7bf94773653e78c4c9a5e071c1",
+                       "targetSha256":  "06a60ce251415137ff006e19d9eab4c63a0f8e7bf94773653e78c4c9a5e071c1",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-xxhdpi/ic_launcher.webp",
+                       "target":  "assets/launcher/mipmap-xxhdpi/ic_launcher.webp",
+                       "sourceSha256":  "7499f09413bff486094087edcbc7c2fa37f22759f5eea70d5294093203b8fc80",
+                       "targetSha256":  "7499f09413bff486094087edcbc7c2fa37f22759f5eea70d5294093203b8fc80",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp",
+                       "target":  "assets/launcher/mipmap-xxhdpi/ic_launcher_round.webp",
+                       "sourceSha256":  "6f3b84cdd4576328b218f598b1797dc86b5a0dde4f16df0e7763a8ecb197326c",
+                       "targetSha256":  "6f3b84cdd4576328b218f598b1797dc86b5a0dde4f16df0e7763a8ecb197326c",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp",
+                       "target":  "assets/launcher/mipmap-xxxhdpi/ic_launcher.webp",
+                       "sourceSha256":  "3698f1cb5d3a36731fe53ca469155c348e9cb69786d301f6b88d79e2b23da469",
+                       "targetSha256":  "3698f1cb5d3a36731fe53ca469155c348e9cb69786d301f6b88d79e2b23da469",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher",
+                       "source":  "app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp",
+                       "target":  "assets/launcher/mipmap-xxxhdpi/ic_launcher_round.webp",
+                       "sourceSha256":  "b15cc4e048f1c33b3c4fa2b3791f437e1d908f267a8840aa23741f8c877895a6",
+                       "targetSha256":  "b15cc4e048f1c33b3c4fa2b3791f437e1d908f267a8840aa23741f8c877895a6",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher-adaptive",
+                       "source":  "app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml",
+                       "target":  "assets/launcher/mipmap-anydpi-v26/ic_launcher.xml",
+                       "sourceSha256":  "66601fd4d575c5bff726de8322e114b3d3a3391c9c036b7f7e7b39660b052ac5",
+                       "targetSha256":  "66601fd4d575c5bff726de8322e114b3d3a3391c9c036b7f7e7b39660b052ac5",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "launcher-adaptive",
+                       "source":  "app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml",
+                       "target":  "assets/launcher/mipmap-anydpi-v26/ic_launcher_round.xml",
+                       "sourceSha256":  "66601fd4d575c5bff726de8322e114b3d3a3391c9c036b7f7e7b39660b052ac5",
+                       "targetSha256":  "66601fd4d575c5bff726de8322e114b3d3a3391c9c036b7f7e7b39660b052ac5",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "animation",
+                       "source":  "app/src/main/assets/Bluetooth.json",
+                       "target":  "assets/animations/Bluetooth.json",
+                       "sourceSha256":  "3640fa70576f98c994217390626df76a9266016aafadc1c8f6dfe9e10b9cf0c1",
+                       "targetSha256":  "3640fa70576f98c994217390626df76a9266016aafadc1c8f6dfe9e10b9cf0c1",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "animation",
+                       "source":  "app/src/main/assets/Bluetooth_of.json",
+                       "target":  "assets/animations/Bluetooth_of.json",
+                       "sourceSha256":  "c8499363de873da6d5f8d9fb7796ceb923f1cac3ab2e618aa57f9b15c7593907",
+                       "targetSha256":  "c8499363de873da6d5f8d9fb7796ceb923f1cac3ab2e618aa57f9b15c7593907",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "audio",
+                       "source":  "app/src/main/res/raw/connection.mp3",
+                       "target":  "assets/audio/connection.mp3",
+                       "sourceSha256":  "c0223a03505a772d729c503afd9c3e12d6b9e3138094298982da40262de42570",
+                       "targetSha256":  "c0223a03505a772d729c503afd9c3e12d6b9e3138094298982da40262de42570",
+                       "conversion":  "copied-byte-for-byte"
+                   },
+                   {
+                       "type":  "audio",
+                       "source":  "app/src/main/res/raw/disconnection.mp3",
+                       "target":  "assets/audio/disconnection.mp3",
+                       "sourceSha256":  "455ab5b5fecf766ff146c1446b461eae05e4f057d475d736f7563ddae6f4020d",
+                       "targetSha256":  "455ab5b5fecf766ff146c1446b461eae05e4f057d475d736f7563ddae6f4020d",
+                       "conversion":  "copied-byte-for-byte"
+                   }
+               ]
+}

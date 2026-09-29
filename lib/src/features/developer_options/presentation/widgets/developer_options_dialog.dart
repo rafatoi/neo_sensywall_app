@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:neo_sensywall_app/src/core/assets/app_assets.dart';
 import 'package:neo_sensywall_app/src/features/developer_options/presentation/controllers/developer_options_controller.dart';
 import 'package:neo_sensywall_app/src/l10n/generated/app_localizations.dart';
 
@@ -22,7 +24,7 @@ class DeveloperOptionsDialog extends ConsumerWidget {
           const SizedBox(height: 16),
           FilledButton.tonalIcon(
             onPressed: state.isBusy ? null : controller.updateMasterWebServer,
-            icon: const Icon(Icons.dns_outlined),
+            icon: const _ActionIcon(asset: AppAssets.globe),
             label: Text(l10n.masterWebServer),
           ),
           const SizedBox(height: 8),
@@ -30,13 +32,13 @@ class DeveloperOptionsDialog extends ConsumerWidget {
             onPressed: state.isBusy
                 ? null
                 : controller.updateSensyWallWebServer,
-            icon: const Icon(Icons.developer_board_outlined),
+            icon: const _ActionIcon(asset: AppAssets.codeWindow),
             label: Text(l10n.sensyWallWebServer),
           ),
           const SizedBox(height: 8),
           FilledButton.tonalIcon(
             onPressed: state.isBusy ? null : controller.scanCells,
-            icon: const Icon(Icons.qr_code_scanner),
+            icon: const _ActionIcon(asset: AppAssets.qrScan),
             label: Text(l10n.scanCells),
           ),
           if (state.foundCells case final count?) ...[
@@ -59,6 +61,25 @@ class DeveloperOptionsDialog extends ConsumerWidget {
       actions: [
         TextButton(onPressed: controller.close, child: Text(l10n.close)),
       ],
+    );
+  }
+}
+
+class _ActionIcon extends StatelessWidget {
+  const _ActionIcon({required this.asset});
+
+  final String asset;
+
+  @override
+  Widget build(BuildContext context) {
+    return SvgPicture.asset(
+      asset,
+      width: 20,
+      height: 20,
+      colorFilter: ColorFilter.mode(
+        Theme.of(context).colorScheme.onSecondaryContainer,
+        BlendMode.srcIn,
+      ),
     );
   }
 }

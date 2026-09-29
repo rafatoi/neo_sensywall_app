@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="108" height="108" viewBox="0 0 1500 1500">
+  <defs>
+    <linearGradient id="gradient1" x1="750" y1="0" x2="750" y2="1500" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#003194" />
+      <stop offset="1" stop-color="#000F2E" />
+    </linearGradient>
+  </defs>
+  <g transform="translate(-382.5 -382.5) scale(1.51 1.51)">
+  <path d="M750,750m-750,0a750,750 0,1 1,1500 0a750,750 0,1 1,-1500 0" fill="url(#gradient1)" />
+  <path d="M596,580L904,580A16,16 0,0 1,920 596L920,904A16,16 0,0 1,904 920L596,920A16,16 0,0 1,580 904L580,596A16,16 0,0 1,596 580z" fill="#ffffff" />
+  <path d="M590,590h100v100h-100z" fill="#003194" />
+  <path d="M700,590h100v100h-100z" fill="#003194" />
+  <path d="M810,590h100v100h-100z" fill="#003194" />
+  <path d="M590,700h100v100h-100z" fill="#003194" />
+  <path d="M700,700h100v100h-100z" fill="#003194" />
+  <path d="M810,700h100v100h-100z" fill="#003194" />
+  <path d="M590,810h100v100h-100z" fill="#003194" />
+  <path d="M700,810h100v100h-100z" fill="#003194" />
+  <path d="M810,810h100v100h-100z" fill="#003194" />
+  </g>
+</svg>

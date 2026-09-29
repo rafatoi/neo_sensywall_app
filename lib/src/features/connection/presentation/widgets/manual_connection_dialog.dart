@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
+import 'package:neo_sensywall_app/src/core/assets/app_assets.dart';
 import 'package:neo_sensywall_app/src/app/theme/app_dimensions.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/entities/ble_device.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/entities/ble_states.dart';
@@ -60,10 +63,11 @@ class _ConnectedDevice extends StatelessWidget {
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(
-          Icons.bluetooth_connected,
-          size: 88,
-          color: Theme.of(context).colorScheme.primary,
+        Image.asset(
+          AppAssets.sensyWallDevice,
+          width: 176,
+          height: 176,
+          fit: BoxFit.contain,
         ),
         const SizedBox(height: AppDimensions.space16),
         Text(
@@ -75,7 +79,15 @@ class _ConnectedDevice extends StatelessWidget {
         const SizedBox(height: AppDimensions.space16),
         OutlinedButton.icon(
           onPressed: onDisconnect,
-          icon: const Icon(Icons.link_off),
+          icon: SvgPicture.asset(
+            AppAssets.plugConnection,
+            width: 22,
+            height: 22,
+            colorFilter: ColorFilter.mode(
+              Theme.of(context).colorScheme.primary,
+              BlendMode.srcIn,
+            ),
+          ),
           label: Text(l10n.disconnect),
         ),
       ],
@@ -117,24 +129,10 @@ class _DisconnectedContent extends StatelessWidget {
     }
     if (session.phase == BleConnectionPhase.connecting ||
         session.phase == BleConnectionPhase.reconnecting) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const CircularProgressIndicator(),
-          const SizedBox(height: AppDimensions.space12),
-          Text(l10n.connecting),
-        ],
-      );
+      return _BluetoothProgress(label: l10n.connecting);
     }
     if (devices.isEmpty) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const CircularProgressIndicator(),
-          const SizedBox(height: AppDimensions.space12),
-          Text(l10n.searchingDevices),
-        ],
-      );
+      return _BluetoothProgress(label: l10n.searchingDevices);
     }
     return ConstrainedBox(
       constraints: const BoxConstraints(maxHeight: 360),
@@ -144,10 +142,25 @@ class _DisconnectedContent extends StatelessWidget {
         separatorBuilder: (_, _) => const Divider(height: 1),
         itemBuilder: (context, index) {
           final device = devices[index];
+          final signal = _signalAsset(device.rssi);
           return ListTile(
-            leading: Icon(_signalIcon(device.rssi)),
+            leading: SvgPicture.asset(
+              AppAssets.bluetooth,
+              width: 28,
+              height: 28,
+              colorFilter: ColorFilter.mode(
+                Theme.of(context).colorScheme.primary,
+                BlendMode.srcIn,
+              ),
+            ),
             title: Text(device.name),
             subtitle: Text(l10n.signalDbm(device.rssi)),
+            trailing: SvgPicture.asset(
+              signal.asset,
+              width: 28,
+              height: 28,
+              colorFilter: ColorFilter.mode(signal.color, BlendMode.srcIn),
+            ),
             onTap: () => onConnect(device),
           );
         },
@@ -156,8 +169,30 @@ class _DisconnectedContent extends StatelessWidget {
   }
 }
 
-IconData _signalIcon(int rssi) {
-  if (rssi > -70) return Icons.signal_cellular_alt;
-  if (rssi > -100) return Icons.signal_cellular_alt_2_bar;
-  return Icons.signal_cellular_alt_1_bar;
+class _BluetoothProgress extends StatelessWidget {
+  const _BluetoothProgress({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Lottie.asset(AppAssets.bluetoothAnimation, width: 104, height: 104),
+        const SizedBox(height: AppDimensions.space12),
+        Text(label),
+      ],
+    );
+  }
+}
+
+({String asset, Color color}) _signalAsset(int rssi) {
+  if (rssi > -70) {
+    return (asset: AppAssets.signalHigh, color: Colors.green);
+  }
+  if (rssi > -100) {
+    return (asset: AppAssets.signalMedium, color: Colors.amber);
+  }
+  return (asset: AppAssets.signalLow, color: Colors.red);
 }

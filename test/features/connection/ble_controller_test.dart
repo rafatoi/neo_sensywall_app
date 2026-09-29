@@ -1,18 +1,22 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:neo_sensywall_app/src/core/audio/audio_providers.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/entities/ble_device.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/entities/ble_states.dart';
 import 'package:neo_sensywall_app/src/features/connection/presentation/controllers/ble_controller.dart';
 import 'package:neo_sensywall_app/src/features/connection/presentation/providers/ble_providers.dart';
 
 import '../../support/fake_ble_repository.dart';
+import '../../support/fake_audio_repository.dart';
 
 void main() {
   test('deduplicates scan results and auto-connects to Sensy Wall', () async {
     final repository = FakeBleRepository();
+    final audio = FakeAudioRepository();
     final container = ProviderContainer(
       overrides: [
         bleRepositoryProvider.overrideWithValue(repository),
+        audioRepositoryProvider.overrideWithValue(audio),
         bleAutoConnectDelayProvider.overrideWithValue(Duration.zero),
       ],
     );
@@ -46,8 +50,12 @@ void main() {
   test('does not scan when Bluetooth permission is denied', () async {
     final repository = FakeBleRepository()
       ..permissionResult = BlePermissionState.denied;
+    final audio = FakeAudioRepository();
     final container = ProviderContainer(
-      overrides: [bleRepositoryProvider.overrideWithValue(repository)],
+      overrides: [
+        bleRepositoryProvider.overrideWithValue(repository),
+        audioRepositoryProvider.overrideWithValue(audio),
+      ],
     );
     addTearDown(container.dispose);
     addTearDown(repository.dispose);
@@ -66,8 +74,12 @@ void main() {
     'makes exactly one reconnect attempt after an unexpected loss',
     () async {
       final repository = FakeBleRepository();
+      final audio = FakeAudioRepository();
       final container = ProviderContainer(
-        overrides: [bleRepositoryProvider.overrideWithValue(repository)],
+        overrides: [
+          bleRepositoryProvider.overrideWithValue(repository),
+          audioRepositoryProvider.overrideWithValue(audio),
+        ],
       );
       addTearDown(container.dispose);
       addTearDown(repository.dispose);
@@ -98,6 +110,7 @@ void main() {
 
       final state = container.read(bleControllerProvider);
       expect(repository.connectCalls, 2);
+      expect(audio.disconnectionPlayCount, 0);
       expect(state.phase, BleConnectionPhase.reconnecting);
       expect(state.showReconnectDialog, isTrue);
     },
@@ -105,8 +118,12 @@ void main() {
 
   test('disconnects in background and reconnects once in foreground', () async {
     final repository = FakeBleRepository();
+    final audio = FakeAudioRepository();
     final container = ProviderContainer(
-      overrides: [bleRepositoryProvider.overrideWithValue(repository)],
+      overrides: [
+        bleRepositoryProvider.overrideWithValue(repository),
+        audioRepositoryProvider.overrideWithValue(audio),
+      ],
     );
     addTearDown(container.dispose);
     addTearDown(repository.dispose);
@@ -128,6 +145,7 @@ void main() {
     await Future<void>.delayed(Duration.zero);
 
     await controller.onAppBackground();
+    expect(audio.disconnectionPlayCount, 1);
     expect(
       container.read(bleControllerProvider).phase,
       BleConnectionPhase.disconnected,
@@ -140,4 +158,90 @@ void main() {
       BleConnectionPhase.reconnecting,
     );
   });
+
+  test('manual disconnect plays the Kotlin disconnection effect', () async {
+    final repository = FakeBleRepository();
+    final audio = FakeAudioRepository();
+    final container = ProviderContainer(
+      overrides: [
+        bleRepositoryProvider.overrideWithValue(repository),
+        audioRepositoryProvider.overrideWithValue(audio),
+      ],
+    );
+    addTearDown(container.dispose);
+    addTearDown(repository.dispose);
+
+    final controller = container.read(bleControllerProvider.notifier);
+    await controller.initialize();
+    await controller.connect(
+      const BleDevice(id: 'device-1', name: 'SENSY_WALL_TEST', rssi: -65),
+    );
+
+    await controller.disconnect();
+
+    expect(audio.disconnectionPlayCount, 1);
+    expect(
+      container.read(bleControllerProvider).phase,
+      BleConnectionPhase.disconnected,
+    );
+  });
+
+  test(
+    'keeps reconnection success visible for the configured duration',
+    () async {
+      final repository = FakeBleRepository();
+      final audio = FakeAudioRepository();
+      final container = ProviderContainer(
+        overrides: [
+          bleRepositoryProvider.overrideWithValue(repository),
+          audioRepositoryProvider.overrideWithValue(audio),
+          bleReconnectSuccessDurationProvider.overrideWithValue(
+            const Duration(milliseconds: 10),
+          ),
+        ],
+      );
+      addTearDown(container.dispose);
+      addTearDown(repository.dispose);
+
+      final controller = container.read(bleControllerProvider.notifier);
+      await controller.initialize();
+      const device = BleDevice(
+        id: 'device-1',
+        name: 'SENSY_WALL_TEST',
+        rssi: -65,
+      );
+      await controller.connect(device);
+      repository.connectionController.add(
+        const BleConnectionEvent(
+          deviceId: 'device-1',
+          type: BleConnectionEventType.connected,
+        ),
+      );
+      await Future<void>.delayed(Duration.zero);
+      repository.connectionController.add(
+        const BleConnectionEvent(
+          deviceId: 'device-1',
+          type: BleConnectionEventType.disconnected,
+        ),
+      );
+      await Future<void>.delayed(Duration.zero);
+      repository.connectionController.add(
+        const BleConnectionEvent(
+          deviceId: 'device-1',
+          type: BleConnectionEventType.connected,
+        ),
+      );
+      await Future<void>.delayed(Duration.zero);
+
+      expect(container.read(bleControllerProvider).showReconnectDialog, isTrue);
+      expect(container.read(bleControllerProvider).isConnected, isTrue);
+
+      await Future<void>.delayed(const Duration(milliseconds: 20));
+
+      expect(
+        container.read(bleControllerProvider).showReconnectDialog,
+        isFalse,
+      );
+    },
+  );
 }

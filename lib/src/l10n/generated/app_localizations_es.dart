@@ -43,6 +43,23 @@ class AppLocalizationsEs extends AppLocalizations {
   String get connectionError => 'Ocurrió un error de conexión.';
 
   @override
+  String get connectionLost => 'Conexión perdida';
+
+  @override
+  String get connectionLostDescription =>
+      'Estamos intentando reconectarnos. Para hacerlo más rápido, mantente cerca del dispositivo.';
+
+  @override
+  String get cancelReconnection => 'Cancelar reconexión';
+
+  @override
+  String get connectionRestored => 'Conexión restablecida';
+
+  @override
+  String get connectionRestoredDescription =>
+      'Puedes continuar, pero por favor no te alejes demasiado.';
+
+  @override
   String get bluetoothPermissionDenied =>
       'Se necesita permiso de Bluetooth para buscar y conectar el Sensy Wall.';
 
@@ -62,6 +79,22 @@ class AppLocalizationsEs extends AppLocalizations {
   String signalDbm(int value) {
     return 'Señal: $value dBm';
   }
+
+  @override
+  String get signalStatus => 'Estado de señal';
+
+  @override
+  String signalHigh(String deviceName) {
+    return 'Excelente conexión con $deviceName';
+  }
+
+  @override
+  String get signalMedium =>
+      'Conexión estable, pero podrías acercarte un poco más';
+
+  @override
+  String get signalLow =>
+      'Señal débil. ¡Acerca el dispositivo para evitar desconexiones!';
 
   @override
   String get availableModes => 'Modalidades disponibles';
@@ -102,6 +135,25 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get generalSettings => 'Ajustes generales';
+
+  @override
+  String get changePlayArea => 'Modificar área de juego';
+
+  @override
+  String get playAreaTitle => 'Definir área de juego';
+
+  @override
+  String get playAreaDescription =>
+      'Selecciona que área del Sensy Wall que estará disponible para jugar';
+
+  @override
+  String get playAreaFull => 'Usar todo el Sensy Wall';
+
+  @override
+  String get playAreaLowerCenter => 'Usar del centro para abajo';
+
+  @override
+  String get playAreaFirstSection => 'Usar solo la primera sección';
 
   @override
   String brightnessPercent(int value) {

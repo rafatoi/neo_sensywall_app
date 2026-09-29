@@ -164,6 +164,36 @@ abstract class AppLocalizations {
   /// **'Ocurrió un error de conexión.'**
   String get connectionError;
 
+  /// No description provided for @connectionLost.
+  ///
+  /// In es, this message translates to:
+  /// **'Conexión perdida'**
+  String get connectionLost;
+
+  /// No description provided for @connectionLostDescription.
+  ///
+  /// In es, this message translates to:
+  /// **'Estamos intentando reconectarnos. Para hacerlo más rápido, mantente cerca del dispositivo.'**
+  String get connectionLostDescription;
+
+  /// No description provided for @cancelReconnection.
+  ///
+  /// In es, this message translates to:
+  /// **'Cancelar reconexión'**
+  String get cancelReconnection;
+
+  /// No description provided for @connectionRestored.
+  ///
+  /// In es, this message translates to:
+  /// **'Conexión restablecida'**
+  String get connectionRestored;
+
+  /// No description provided for @connectionRestoredDescription.
+  ///
+  /// In es, this message translates to:
+  /// **'Puedes continuar, pero por favor no te alejes demasiado.'**
+  String get connectionRestoredDescription;
+
   /// No description provided for @bluetoothPermissionDenied.
   ///
   /// In es, this message translates to:
@@ -199,6 +229,30 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Señal: {value} dBm'**
   String signalDbm(int value);
+
+  /// No description provided for @signalStatus.
+  ///
+  /// In es, this message translates to:
+  /// **'Estado de señal'**
+  String get signalStatus;
+
+  /// No description provided for @signalHigh.
+  ///
+  /// In es, this message translates to:
+  /// **'Excelente conexión con {deviceName}'**
+  String signalHigh(String deviceName);
+
+  /// No description provided for @signalMedium.
+  ///
+  /// In es, this message translates to:
+  /// **'Conexión estable, pero podrías acercarte un poco más'**
+  String get signalMedium;
+
+  /// No description provided for @signalLow.
+  ///
+  /// In es, this message translates to:
+  /// **'Señal débil. ¡Acerca el dispositivo para evitar desconexiones!'**
+  String get signalLow;
 
   /// No description provided for @availableModes.
   ///
@@ -271,6 +325,42 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Ajustes generales'**
   String get generalSettings;
+
+  /// No description provided for @changePlayArea.
+  ///
+  /// In es, this message translates to:
+  /// **'Modificar área de juego'**
+  String get changePlayArea;
+
+  /// No description provided for @playAreaTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Definir área de juego'**
+  String get playAreaTitle;
+
+  /// No description provided for @playAreaDescription.
+  ///
+  /// In es, this message translates to:
+  /// **'Selecciona que área del Sensy Wall que estará disponible para jugar'**
+  String get playAreaDescription;
+
+  /// No description provided for @playAreaFull.
+  ///
+  /// In es, this message translates to:
+  /// **'Usar todo el Sensy Wall'**
+  String get playAreaFull;
+
+  /// No description provided for @playAreaLowerCenter.
+  ///
+  /// In es, this message translates to:
+  /// **'Usar del centro para abajo'**
+  String get playAreaLowerCenter;
+
+  /// No description provided for @playAreaFirstSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Usar solo la primera sección'**
+  String get playAreaFirstSection;
 
   /// No description provided for @brightnessPercent.
   ///

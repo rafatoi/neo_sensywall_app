@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:neo_sensywall_app/src/core/audio/audio_providers.dart';
+import 'package:neo_sensywall_app/src/core/audio/audio_repository.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/entities/ble_device.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/entities/ble_states.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/repositories/ble_repository.dart';
@@ -10,12 +12,18 @@ final bleControllerProvider = NotifierProvider<BleController, BleSessionState>(
   BleController.new,
 );
 
+final bleReconnectSuccessDurationProvider = Provider<Duration>(
+  (ref) => const Duration(seconds: 2),
+);
+
 class BleController extends Notifier<BleSessionState> {
   StreamSubscription<BleAdapterState>? _adapterSubscription;
   StreamSubscription<BleConnectionEvent>? _connectionSubscription;
   StreamSubscription<BleDevice>? _scanSubscription;
   Timer? _rssiTimer;
+  Timer? _reconnectDialogTimer;
   BleRepository? _repository;
+  AudioRepository? _audioRepository;
   BleDevice? _lastConnectedDevice;
   bool _manualDisconnect = false;
   bool _initialized = false;
@@ -24,6 +32,7 @@ class BleController extends Notifier<BleSessionState> {
   @override
   BleSessionState build() {
     _repository = ref.read(bleRepositoryProvider);
+    _audioRepository = ref.read(audioRepositoryProvider);
     ref.onDispose(_dispose);
     Future<void>.microtask(initialize);
     return const BleSessionState();
@@ -158,20 +167,31 @@ class BleController extends Notifier<BleSessionState> {
         state = state.copyWith(phase: BleConnectionPhase.connecting);
       case BleConnectionEventType.connected:
         final device = _deviceFor(event.deviceId);
+        final showRestored =
+            state.showReconnectDialog ||
+            state.phase == BleConnectionPhase.reconnecting;
         _lastConnectedDevice = device;
         _manualDisconnect = false;
         _connectionRequested = false;
         state = state.copyWith(
           phase: BleConnectionPhase.connected,
           connectedDevice: device,
-          showReconnectDialog: false,
+          showReconnectDialog: showRestored,
           clearError: true,
         );
         _startRssiPolling();
+        if (showRestored) {
+          _reconnectDialogTimer?.cancel();
+          _reconnectDialogTimer = Timer(
+            ref.read(bleReconnectSuccessDurationProvider),
+            dismissReconnectDialog,
+          );
+        }
       case BleConnectionEventType.disconnecting:
         _rssiTimer?.cancel();
       case BleConnectionEventType.disconnected:
         _rssiTimer?.cancel();
+        _reconnectDialogTimer?.cancel();
         _connectionRequested = false;
         state = state.copyWith(
           phase: BleConnectionPhase.disconnected,
@@ -188,6 +208,7 @@ class BleController extends Notifier<BleSessionState> {
   BleDevice _deviceFor(String id) {
     final scanned = state.devices.where((device) => device.id == id);
     if (scanned.isNotEmpty) return scanned.first;
+    if (state.connectedDevice?.id == id) return state.connectedDevice!;
     if (_lastConnectedDevice?.id == id) return _lastConnectedDevice!;
     return BleDevice(id: id, name: '', rssi: -100);
   }
@@ -211,6 +232,7 @@ class BleController extends Notifier<BleSessionState> {
     _manualDisconnect = true;
     _connectionRequested = false;
     _rssiTimer?.cancel();
+    await _playDisconnection();
     await _repository!.disconnect();
     state = state.copyWith(
       phase: BleConnectionPhase.disconnected,
@@ -231,6 +253,8 @@ class BleController extends Notifier<BleSessionState> {
   }
 
   void dismissReconnectDialog() {
+    _reconnectDialogTimer?.cancel();
+    _reconnectDialogTimer = null;
     state = state.copyWith(showReconnectDialog: false);
   }
 
@@ -238,6 +262,7 @@ class BleController extends Notifier<BleSessionState> {
     if (!state.isConnected) return;
     _manualDisconnect = true;
     _rssiTimer?.cancel();
+    await _playDisconnection();
     await _repository!.disconnect();
     state = state.copyWith(
       phase: BleConnectionPhase.disconnected,
@@ -276,8 +301,17 @@ class BleController extends Notifier<BleSessionState> {
     );
   }
 
+  Future<void> _playDisconnection() async {
+    try {
+      await _audioRepository?.playDisconnection();
+    } catch (_) {
+      // Audio is a secondary effect and must never prevent the BLE disconnect.
+    }
+  }
+
   void _dispose() {
     _rssiTimer?.cancel();
+    _reconnectDialogTimer?.cancel();
     unawaited(_adapterSubscription?.cancel());
     unawaited(_connectionSubscription?.cancel());
     unawaited(_scanSubscription?.cancel());

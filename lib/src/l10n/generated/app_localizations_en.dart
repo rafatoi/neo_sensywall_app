@@ -43,6 +43,23 @@ class AppLocalizationsEn extends AppLocalizations {
   String get connectionError => 'A connection error occurred.';
 
   @override
+  String get connectionLost => 'Connection lost';
+
+  @override
+  String get connectionLostDescription =>
+      'We are trying to reconnect. To speed it up, please stay close to the device.';
+
+  @override
+  String get cancelReconnection => 'Cancel reconnection';
+
+  @override
+  String get connectionRestored => 'Connection restored';
+
+  @override
+  String get connectionRestoredDescription =>
+      'You can continue, but please don’t move too far away.';
+
+  @override
   String get bluetoothPermissionDenied =>
       'Bluetooth permission is required to find and connect Sensy Wall.';
 
@@ -62,6 +79,22 @@ class AppLocalizationsEn extends AppLocalizations {
   String signalDbm(int value) {
     return 'Signal: $value dBm';
   }
+
+  @override
+  String get signalStatus => 'Signal status';
+
+  @override
+  String signalHigh(String deviceName) {
+    return 'Excellent connection with $deviceName';
+  }
+
+  @override
+  String get signalMedium =>
+      'Stable connection, but you could get a little closer';
+
+  @override
+  String get signalLow =>
+      'Weak signal. Move the device closer to avoid disconnections!';
 
   @override
   String get availableModes => 'Available modes';
@@ -102,6 +135,25 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get generalSettings => 'General settings';
+
+  @override
+  String get changePlayArea => 'Change play area';
+
+  @override
+  String get playAreaTitle => 'Set play area';
+
+  @override
+  String get playAreaDescription =>
+      'Select the Sensy Wall area you want to use';
+
+  @override
+  String get playAreaFull => 'Use the entire Sensy Wall';
+
+  @override
+  String get playAreaLowerCenter => 'Use from the center down';
+
+  @override
+  String get playAreaFirstSection => 'Use only the first section';
 
   @override
   String brightnessPercent(int value) {

@@ -391,6 +391,7 @@ La primera base de migración ya está implementada:
 - dominio inicial de modalidades, colores y protocolo;
 - repositorio Sensy Wall en memoria conservado como fake para pruebas y desarrollo sin hardware;
 - ajustes iniciales de brillo, volumen, dificultad, sonido y color;
+- selector de área 0..2 controlado por Riverpod, con sheet localizado, diagramas originales y comando 68;
 - menú oculto de desarrollador controlado por Riverpod;
 - codec BLE de 8 bytes con prueba de compatibilidad;
 - data source real con `flutter_reactive_ble 5.6.0` (BSD-3-Clause);
@@ -399,13 +400,23 @@ La primera base de migración ya está implementada:
 - estados explícitos de permiso, adaptador, escaneo, conexión, reconexión y error;
 - escaneo sin timeout, deduplicación por identificador, actualización de RSSI y auto-conexión a nombres que contengan `SENSY_WALL`;
 - conexión manual, desconexión, lectura RSSI cada 2 segundos y reconexión de un solo intento;
+- diálogo de reconexión en modalidades y ajustes, con estado restaurado durante 2 segundos y cancelación con retorno equivalente a Kotlin;
+- audio desacoplado mediante `AudioRepository` y `audioplayers 6.8.1` (MIT), con `disconnection.mp3` en desconexión manual/background y liberación del reproductor;
+- indicador RSSI reutilizable en inicio, modalidades, ajustes y reconexión, con umbrales `>-80`, `>-95` y tooltip Riverpod autocerrable a los 3 segundos;
 - suscripción a respuesta postergada y archivo en el orden y separación de 300 ms de Kotlin;
 - comandos normales sin respuesta y flujo de `bsub` con escritura con respuesta;
 - lifecycle background/foreground coordinado desde Riverpod;
 - implementación real de `SensyWallRepository` sobre BLE;
+- 42 VectorDrawable convertidos a SVG mediante `tool/convert_android_assets.ps1`;
+- inventario de 61 assets con mapeo origen/destino y SHA-256 en `assets/assets_manifest.json`;
+- PNG, WebP, Lottie y MP3 copiados, registrados en `pubspec.yaml` y centralizados en `AppAssets`;
+- `darwin.webp` añadido al inventario al encontrarse en `res/drawable`, aunque no figuraba en el snapshot Kotlin inicial;
+- logos, iconos de modalidad, estados BLE, dispositivo conectado y opciones ocultas enlazados a los recursos originales;
+- launcher Android normal, redondo y adaptativo migrado desde la app Kotlin;
+- prueba de carga del manifiesto, medios y render de los 42 SVG;
 - Android `compileSdk 37` y AGP `9.1.1`, manteniendo `targetSdk` administrado por Flutter;
-- analyze, 9 tests y APK debug verificados.
+- analyze, 18 tests y APK debug verificados.
 
 La elección de `flutter_reactive_ble` evita la licencia comercial que actualmente exige `flutter_blue_plus` para uso por organizaciones con fines de lucro. No cambiar de plugin sin repetir revisión de licencia, mantenimiento y prueba con hardware.
 
-Todavía no están validados scan, GATT, notificaciones, RSSI y reconexión con hardware Sensy Wall real. Tampoco están implementados el audio de desconexión, la migración completa de assets ni la paridad visual final. No declarar terminada la fase BLE hasta ejecutar la matriz física de la sección 14.
+Todavía no están validados scan, GATT, notificaciones, RSSI, audio y reconexión con hardware Sensy Wall real. `connection.mp3` se conserva sin reproducir porque Kotlin tampoco lo usa. La conversión de assets tiene validación estructural y de carga, pero aún requiere comparación visual lado a lado con Android. Tampoco está terminada la paridad visual final. No declarar terminada la fase BLE hasta ejecutar la matriz física de la sección 14.

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:neo_sensywall_app/src/app/theme/app_dimensions.dart';
+import 'package:neo_sensywall_app/src/core/assets/app_assets.dart';
 import 'package:neo_sensywall_app/src/features/connection/domain/entities/ble_states.dart';
 import 'package:neo_sensywall_app/src/features/connection/presentation/controllers/ble_controller.dart';
+import 'package:neo_sensywall_app/src/features/connection/presentation/widgets/ble_signal_status.dart';
 import 'package:neo_sensywall_app/src/features/connection/presentation/widgets/manual_connection_dialog.dart';
 import 'package:neo_sensywall_app/src/features/developer_options/presentation/controllers/developer_options_controller.dart';
 import 'package:neo_sensywall_app/src/features/developer_options/presentation/widgets/developer_options_dialog.dart';
@@ -38,27 +42,49 @@ class HomeScreen extends ConsumerWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          ble.isConnected
-                              ? Icons.bluetooth_connected
-                              : Icons.bluetooth_searching,
-                          size: 112,
-                          color: Theme.of(context).colorScheme.primary,
+                        SvgPicture.asset(
+                          Theme.of(context).brightness == Brightness.dark
+                              ? AppAssets.sensoryLogoDark
+                              : AppAssets.sensoryLogoLight,
+                          height: 112,
+                          semanticsLabel: l10n.appTitle,
                         ),
-                        const SizedBox(height: AppDimensions.space24),
-                        Text(
-                          l10n.welcome,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headlineMedium
-                              ?.copyWith(fontWeight: FontWeight.bold),
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                            vertical: AppDimensions.space16,
+                          ),
+                          child: SizedBox(width: 280, child: Divider()),
                         ),
-                        const SizedBox(height: AppDimensions.space12),
-                        Text(
-                          _connectionMessage(l10n, ble),
-                          textAlign: TextAlign.center,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            if (ble.isConnected) ...[
+                              SvgPicture.asset(
+                                AppAssets.verified,
+                                width: 25,
+                                height: 25,
+                              ),
+                              const SizedBox(width: AppDimensions.space16),
+                            ],
+                            Flexible(
+                              child: Text(
+                                _connectionMessage(l10n, ble),
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(height: AppDimensions.space32),
-                        if (!ble.isConnected)
+                        if (!ble.isConnected) ...[
+                          Flexible(
+                            child: Lottie.asset(
+                              AppAssets.bluetoothAnimation,
+                              repeat: true,
+                              animate: !home.showConnectionDialog,
+                            ),
+                          ),
                           FilledButton.icon(
                             onPressed: ref
                                 .read(homeControllerProvider.notifier)
@@ -66,6 +92,7 @@ class HomeScreen extends ConsumerWidget {
                             icon: const Icon(Icons.arrow_forward),
                             label: Text(l10n.start),
                           ),
+                        ],
                       ],
                     ),
                   ),
@@ -85,14 +112,19 @@ class HomeScreen extends ConsumerWidget {
                           ),
                         ),
                       ),
+                      const BleSignalStatus(),
                       TextButton.icon(
                         onPressed: ref
                             .read(homeControllerProvider.notifier)
                             .openConnectionDialog,
-                        icon: Icon(
-                          ble.isConnected
-                              ? Icons.bluetooth_connected
-                              : Icons.bluetooth_searching,
+                        icon: SvgPicture.asset(
+                          AppAssets.bluetooth,
+                          width: 20,
+                          height: 20,
+                          colorFilter: ColorFilter.mode(
+                            Theme.of(context).colorScheme.primary,
+                            BlendMode.srcIn,
+                          ),
                         ),
                         label: Text(
                           ble.isConnected
